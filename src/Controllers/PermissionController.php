@@ -23,7 +23,7 @@ class PermissionController extends Controller
 
         JavaScript::put(['models' => $models]);
 
-        return view('admin.permissions.index');
+        return view('oxygencms::admin.permissions.index');
     }
 
     /**
@@ -38,7 +38,7 @@ class PermissionController extends Controller
 
         $permission = null;
 
-        return view('admin.permissions.create', compact('permission'));
+        return view('oxygencms::admin.permissions.create', compact('permission'));
     }
 
     /**
@@ -72,7 +72,7 @@ class PermissionController extends Controller
     {
         $this->authorize('update', Permission::class);
 
-        return view('admin.permissions.edit', compact('permission'));
+        return view('oxygencms::admin.permissions.edit', compact('permission'));
     }
 
     /**

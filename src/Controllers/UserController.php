@@ -18,7 +18,7 @@ class UserController extends Controller
      */
     public function dashboard(User $user)
     {
-        return view('users.dashboard', compact('user'));
+        return view('oxygencms::users.dashboard', compact('user'));
     }
 
     /**
@@ -30,7 +30,7 @@ class UserController extends Controller
      */
     public function profile(User $user)
     {
-        return view('users.profile', compact('user'));
+        return view('oxygencms::users.profile', compact('user'));
     }
 
     /**

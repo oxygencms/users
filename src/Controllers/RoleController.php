@@ -24,7 +24,7 @@ class RoleController extends Controller
 
         JavaScript::put(['models'=> $models]);
 
-        return view('admin.roles.index');
+        return view('oxygencms::admin.roles.index');
     }
 
     /**
@@ -41,7 +41,7 @@ class RoleController extends Controller
 
         $permissions = Permission::get()->pluck('name');
 
-        return view('admin.roles.create', compact('permissions', 'role'));
+        return view('oxygencms::admin.roles.create', compact('permissions', 'role'));
     }
 
     /**
@@ -79,7 +79,7 @@ class RoleController extends Controller
 
         $permissions = Permission::get()->pluck('name')->all();
 
-        return view('admin.roles.edit', compact('role', 'permissions'));
+        return view('oxygencms::admin.roles.edit', compact('role', 'permissions'));
     }
 
     /**

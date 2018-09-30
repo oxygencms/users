@@ -24,7 +24,7 @@ class AdminUserController extends Controller
 
         JavaScript::put(['models' => $models]);
 
-        return view('admin.users.index');
+        return view('oxygencms::admin.users.index');
     }
 
     /**
@@ -41,7 +41,7 @@ class AdminUserController extends Controller
 
         $roles = Role::all();
 
-        return view('admin.users.edit', compact('user', 'roles'));
+        return view('oxygencms::admin.users.edit', compact('user', 'roles'));
     }
 
     /**

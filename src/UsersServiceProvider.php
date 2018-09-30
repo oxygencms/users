@@ -3,7 +3,6 @@
 namespace Oxygencms\Users;
 
 use Illuminate\Routing\Router;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Oxygencms\Users\Middleware\UserResource;
 use Spatie\Permission\Middlewares\RoleMiddleware;
@@ -26,8 +25,8 @@ class UsersServiceProvider extends ServiceProvider
         ], 'views');
 
         $router->aliasMiddleware('personal', UserResource::class);
-        $router->pushMiddlewareToGroup('web', PermissionMiddleware::class);
-        $router->pushMiddlewareToGroup('web', RoleMiddleware::class);
+        $router->aliasMiddleware('permission', PermissionMiddleware::class);
+        $router->aliasMiddleware('role', RoleMiddleware::class);
     }
 
     /**
@@ -37,6 +36,7 @@ class UsersServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->register(AuthServiceProvider::class);
         $this->app->register(RouteServiceProvider::class);
     }
 }
