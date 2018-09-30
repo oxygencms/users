@@ -1,0 +1,29 @@
+{
+    "name": "oxygencms/users",
+    "description": "Oxy users",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pavel Pavlov",
+            "email": "pavlovp@icloud.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "laracasts/utilities": "^3.0",
+        "spatie/laravel-permission": "^2.20",
+        "laravel/socialite": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Oxygencms\\Users\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Oxygencms\\Users\\UsersServiceProvider"
+            ]
+        }
+    }
+}
