@@ -8,7 +8,7 @@ use Oxygencms\Users\Middleware\UserResource;
 use Spatie\Permission\Middlewares\RoleMiddleware;
 use Spatie\Permission\Middlewares\PermissionMiddleware;
 
-class UsersServiceProvider extends ServiceProvider
+class UserServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap services.

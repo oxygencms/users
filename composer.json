@@ -22,7 +22,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Oxygencms\\Users\\UsersServiceProvider"
+                "Oxygencms\\Users\\UserServiceProvider"
             ]
         }
     }
