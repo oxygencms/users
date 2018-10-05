@@ -17,7 +17,7 @@ class RolePolicy extends BasePolicy
      */
     public function index(User $user)
     {
-        if ($user->can('see_roles') || $user->can('manage_roles')) {
+        if ($user->can('view_roles') || $user->can('manage_roles')) {
             return true;
         }
 

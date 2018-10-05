@@ -17,7 +17,7 @@ class UserPolicy extends BasePolicy
      */
     public function index(User $user)
     {
-        if ($user->can('see_users') || $user->can('manage_users')) {
+        if ($user->can('view_users') || $user->can('manage_users')) {
             return true;
         }
 

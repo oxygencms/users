@@ -17,7 +17,7 @@ class PermissionPolicy extends BasePolicy
      */
     public function index(User $user)
     {
-        if ($user->can('see_permissions') || $user->can('manage_permissions')) {
+        if ($user->can('view_permissions') || $user->can('manage_permissions')) {
             return true;
         }
 
