@@ -2,9 +2,9 @@
 
 namespace Oxygencms\Users\Models;
 
-use App\Traits\HasUploads;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
+use Oxygencms\Uploads\Traits\HasUploads;
 use Oxygencms\Core\Traits\CommonQueries;
 use Oxygencms\Core\Traits\CommonAccessors;
 use Illuminate\Contracts\Auth\MustVerifyEmail;

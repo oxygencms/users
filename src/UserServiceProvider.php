@@ -18,11 +18,27 @@ class UserServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        $this->loadViewsFrom(__DIR__.'/Views', 'oxygencms');
+        $this->loadViewsFrom(__DIR__.'/../views', 'oxygencms');
 
         $this->publishes([
-            __DIR__.'/Views' => resource_path('views/vendor/oxygencms'),
+            __DIR__.'/../views' => resource_path('views/vendor/oxygencms'),
         ], 'views');
+
+        $this->publishes([
+            __DIR__.'/../routes.php' => base_path('routes/users.php'),
+        ], 'routes');
+
+        $this->publishes([
+            __DIR__.'/../database/migrations/' => database_path('migrations')
+        ], 'migrations');
+
+        $this->publishes([
+            __DIR__.'/../database/seeds/' => database_path('seeds')
+        ], 'seeds');
+
+        $this->publishes([
+            __DIR__.'/../database/factories' => database_path('factories')
+        ], 'seeds');
 
         $router->aliasMiddleware('personal', UserResource::class);
         $router->aliasMiddleware('permission', PermissionMiddleware::class);
@@ -37,6 +53,7 @@ class UserServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(AuthServiceProvider::class);
+
         $this->app->register(RouteServiceProvider::class);
     }
 }

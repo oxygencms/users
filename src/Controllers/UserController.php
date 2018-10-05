@@ -4,7 +4,7 @@ namespace Oxygencms\Users\Controllers;
 
 use Illuminate\Http\Request;
 use Oxygencms\Users\Models\User;
-use App\Http\Controllers\Controller;
+use Oxygencms\Core\Controllers\Controller;
 use Oxygencms\Users\Rules\OldPassword;
 
 class UserController extends Controller

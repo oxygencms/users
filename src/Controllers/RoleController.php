@@ -4,7 +4,7 @@ namespace Oxygencms\Users\Controllers;
 
 use JavaScript;
 use Oxygencms\Users\Models\Role;
-use App\Http\Controllers\Controller;
+use Oxygencms\Core\Controllers\Controller;
 use Oxygencms\Users\Models\Permission;
 use Oxygencms\Users\Requests\RoleRequest;
 

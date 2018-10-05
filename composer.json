@@ -1,11 +1,15 @@
 {
     "name": "oxygencms/users",
-    "description": "Oxy users",
+    "description": "Oxygen CMS users, roles and permissions package.",
     "license": "MIT",
     "authors": [
         {
             "name": "Pavel Pavlov",
             "email": "pavlovp@icloud.com"
+        },
+        {
+            "name": "Martin Blagoev",
+            "email": "mb.reppair@gmail.com"
         }
     ],
     "minimum-stability": "dev",

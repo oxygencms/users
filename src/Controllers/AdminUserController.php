@@ -5,7 +5,7 @@ namespace Oxygencms\Users\Controllers;
 use JavaScript;
 use Oxygencms\Users\Models\Role;
 use Oxygencms\Users\Models\User;
-use App\Http\Controllers\Controller;
+use Oxygencms\Core\Controllers\Controller;
 use Oxygencms\Users\Requests\UserRequest;
 
 class AdminUserController extends Controller
