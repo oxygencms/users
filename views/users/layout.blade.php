@@ -1,4 +1,4 @@
-@extends('oxygencms::users.layout')
+@extends('oxygencms::layouts.app')
 
 @section('content')
 
@@ -22,12 +22,6 @@
                 <li class="{{ activeIfPath('user/*/profile') }}">
                     <a href="{{ route('user.profile', auth()->user()) }}">
                         @lang('links.my-profile')
-                    </a>
-                </li>
-
-                <li class="{{ activeIfPath('user/*/community') }}">
-                    <a href="{{ route('user.community', auth()->user()) }}">
-                        @lang('links.my-communities')
                     </a>
                 </li>
             </ul>
