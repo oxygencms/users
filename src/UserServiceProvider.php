@@ -38,7 +38,7 @@ class UserServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../database/factories' => database_path('factories')
-        ], 'seeds');
+        ], 'factories');
 
         $router->aliasMiddleware('personal', UserResource::class);
         $router->aliasMiddleware('permission', PermissionMiddleware::class);

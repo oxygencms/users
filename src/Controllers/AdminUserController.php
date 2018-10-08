@@ -3,8 +3,8 @@
 namespace Oxygencms\Users\Controllers;
 
 use JavaScript;
+use App\Models\User;
 use Oxygencms\Users\Models\Role;
-use Oxygencms\Users\Models\User;
 use Oxygencms\Core\Controllers\Controller;
 use Oxygencms\Users\Requests\UserRequest;
 

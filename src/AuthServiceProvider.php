@@ -12,7 +12,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'Oxygencms\Users\Models\User' => 'Oxygencms\Users\Policies\UserPolicy',
+        'App\Models\User' => 'Oxygencms\Users\Policies\UserPolicy',
         'Oxygencms\Users\Models\Role' => 'Oxygencms\Users\Policies\RolePolicy',
         'Oxygencms\Users\Models\Permission' => 'Oxygencms\Users\Policies\PermissionPolicy',
     ];

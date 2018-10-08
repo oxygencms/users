@@ -2,7 +2,7 @@
 
 namespace Oxygencms\Users\Rules;
 
-use Oxygencms\Users\Models\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Contracts\Validation\Rule;
 

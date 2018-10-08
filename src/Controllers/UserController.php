@@ -3,7 +3,7 @@
 namespace Oxygencms\Users\Controllers;
 
 use Illuminate\Http\Request;
-use Oxygencms\Users\Models\User;
+use App\Models\User;
 use Oxygencms\Core\Controllers\Controller;
 use Oxygencms\Users\Rules\OldPassword;
 

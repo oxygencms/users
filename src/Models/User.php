@@ -7,7 +7,6 @@ use Illuminate\Notifications\Notifiable;
 use Oxygencms\Uploads\Traits\HasUploads;
 use Oxygencms\Core\Traits\CommonQueries;
 use Oxygencms\Core\Traits\CommonAccessors;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
