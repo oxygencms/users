@@ -6,7 +6,7 @@ use JavaScript;
 use App\Models\User;
 use Oxygencms\Users\Models\Role;
 use Oxygencms\Core\Controllers\Controller;
-use Oxygencms\Users\Requests\UserRequest;
+use Oxygencms\Users\Contracts\Admin\UserRequestInterface as UserRequest;
 
 class AdminUserController extends Controller
 {

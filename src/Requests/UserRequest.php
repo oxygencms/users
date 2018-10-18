@@ -3,8 +3,9 @@
 namespace Oxygencms\Users\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Oxygencms\Users\Contracts\Admin\UserRequestInterface;
 
-class UserRequest extends FormRequest
+class UserRequest extends FormRequest implements UserRequestInterface
 {
     /**
      * Determine if the user is authorized to make this request.
