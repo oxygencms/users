@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <form action="{{ route('role.store') }}" method="POST">
+    <form action="{{ route('admin.role.store') }}" method="POST">
         {!! csrf_field() !!}
 
         @include('oxygencms::admin.roles._form-fields')

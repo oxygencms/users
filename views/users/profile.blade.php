@@ -62,7 +62,7 @@
                 </div>
             </form>
 
-            <form action="{{ route('user.password.update', $user) }}" method="post">
+            <form action="{{ route('admin.user.password.update', $user) }}" method="post">
                 @csrf
                 @method('patch')
 

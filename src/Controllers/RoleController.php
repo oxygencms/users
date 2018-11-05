@@ -62,7 +62,7 @@ class RoleController extends Controller
 
         notification("$role->model_name successfully created");
 
-        return redirect()->route('role.index');
+        return redirect()->route('admin.role.index');
     }
 
     /**

@@ -10,7 +10,7 @@
 
             <div class="ml-auto d-flex justify-content-end">
                 <div>
-                    <a href="{{ route('permission.create') }}" class="btn">
+                    <a href="{{ route('admin.permission.create') }}" class="btn">
                         Create <i class="far fa-edit"></i>
                     </a>
                 </div>

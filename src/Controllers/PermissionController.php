@@ -57,7 +57,7 @@ class PermissionController extends Controller
 
         notification("$permission->model_name successfully stored.");
 
-        return redirect()->route('permission.index');
+        return redirect()->route('admin.permission.index');
     }
 
     /**

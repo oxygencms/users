@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <form action="{{ route('permission.update', $permission) }}" method="POST">
+    <form action="{{ route('admin.permission.update', $permission) }}" method="POST">
         {!! csrf_field() !!}
         {!! method_field('patch') !!}
 
