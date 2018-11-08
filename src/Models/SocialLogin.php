@@ -2,7 +2,7 @@
 
 namespace Oxygencms\Users\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Oxygencms\Core\Models\Model;
 
 class SocialLogin extends Model
 {

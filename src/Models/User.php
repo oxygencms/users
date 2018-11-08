@@ -7,11 +7,17 @@ use Illuminate\Notifications\Notifiable;
 use Oxygencms\Uploads\Traits\HasUploads;
 use Oxygencms\Core\Traits\CommonQueries;
 use Oxygencms\Core\Traits\CommonAccessors;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasRoles, HasUploads, CommonQueries, CommonAccessors;
+    use Notifiable,
+        HasRoles,
+        HasUploads,
+        CommonQueries,
+        CommonAccessors,
+        LogsActivity;
 
     protected $guard_name = 'web';
 
@@ -22,6 +28,15 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'phone', 'password', 'active',
+    ];
+
+    /**
+     * Logged attributes.
+     *
+     * @var bool $logUnguarded
+     */
+    protected static $logAttributes = [
+        'name', 'email', 'phone', 'active',
     ];
 
     /**
