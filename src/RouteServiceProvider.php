@@ -27,11 +27,24 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware(['web', 'admin'])
             ->prefix('admin')
             ->name('admin.')
-            ->namespace('Oxygencms\Users\Controllers')
             ->group(function () {
-                Route::resource('role', 'RoleController', ['except' => 'show']);
-                Route::resource('permission', 'PermissionController', ['except' => 'show']);
-                Route::resource('user', 'AdminUserController', ['except' => 'show']);
+                Route::resource(
+                    'role',
+                    config('oxy_users.role_controller'),
+                    config('oxy_users.role_controller_routes')
+                );
+
+                Route::resource(
+                    'permission',
+                    config('oxy_users.permission_controller'),
+                    config('oxy_users.permission_controller_routes')
+                );
+
+                Route::resource(
+                    'user',
+                    config('oxy_users.admin_user_controller'),
+                    config('oxy_users.admin_user_controller_routes')
+                );
             });
 
         // Social Login

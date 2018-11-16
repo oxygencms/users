@@ -2,6 +2,7 @@
 
 namespace Oxygencms\Users\Models;
 
+use Spatie\Activitylog\Traits\CausesActivity;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Oxygencms\Uploads\Traits\HasUploads;
@@ -17,7 +18,8 @@ class User extends Authenticatable
         HasUploads,
         CommonQueries,
         CommonAccessors,
-        LogsActivity;
+        LogsActivity,
+        CausesActivity;
 
     protected $guard_name = 'web';
 
