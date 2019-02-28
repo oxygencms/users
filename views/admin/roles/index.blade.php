@@ -18,26 +18,34 @@
         </div>
     </div>
 
-    <table-component :data="models">
-        <table-column show="name" label="Name"></table-column>
+    <vue-good-table
+            :columns="[
+                {label: 'Name', field: 'name'},
+                {label: 'Permissions', field: 'applied-permissions', sortable: false},
+                {label: 'Actions', field: 'actions', width: '100px', globalSearchDisabled: false, sortable: false},
+            ]"
+            :rows="models"
+            :search-options="{enabled: true}"
+            :pagination-options="{enabled: true}"
+    >
+        <template slot="table-row" slot-scope="props">
+            <span v-if="props.column.field === 'applied-permissions'">
+                <span class="badge badge-secondary mr-1"
+                      v-for="permission in props.row.permissions"
+                      v-text="permission.name"
+                ></span>
+            </span>
 
-        <table-column label="Permissions">
-            <template slot-scope="row">
-                <h6>
-                    <span class="badge badge-secondary mr-1"
-                          v-text="permission.name"
-                          v-for="permission in row.permissions"
-                    ></span>
-                </h6>
-            </template>
-        </table-column>
+            <span v-if="props.column.label === 'Actions'" class="action-links">
+                <a :href="props.row.edit_url" title="Edit">edit</a>
 
-        <table-column label="Actions" :filterable="false" :sortable="false">
-            <template slot-scope="row">
-                <a :href="row.edit_url">edit</a>
-                <a href="#" @click.prevent="confirmAndDestroy(row)">delete</a>
-            </template>
-        </table-column>
-    </table-component>
+                <a @click.prevent="confirmAndDestroy(props.row)" href="#" title="Delete">
+                    delete
+                </a>
+            </span>
+
+            <span v-else v-text="props.formattedRow[props.column.field]"></span>
+        </template>
+    </vue-good-table>
 
 @endsection

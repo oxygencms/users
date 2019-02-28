@@ -29,7 +29,7 @@
         <!-- phone -->
         <div class="row">
             <div class="col-12 mb-4">
-                <label for="phone">Phone <strong>*</strong></label>
+                <label for="phone">Phone</label>
                 <input type="text"
                        class="form-control {{ $errors->has('phone') ? 'is-invalid' : null }}"
                        id="phone"

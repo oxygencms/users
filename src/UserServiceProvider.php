@@ -56,6 +56,7 @@ class UserServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/oxy_users.php', 'oxy_users');
+
 //        $this->app->bind(UserRequestInterface::class, function()
 //        {
 //            $concrete = config('oxy_users.admin_form_request_class');

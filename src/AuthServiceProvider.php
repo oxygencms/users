@@ -3,20 +3,10 @@
 namespace Oxygencms\Users;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
-    /**
-     * The policy mappings for the application.
-     *
-     * @var array
-     */
-    protected $policies = [
-        'App\Models\User' => 'Oxygencms\Users\Policies\UserPolicy',
-        'Oxygencms\Users\Models\Role' => 'Oxygencms\Users\Policies\RolePolicy',
-        'Oxygencms\Users\Models\Permission' => 'Oxygencms\Users\Policies\PermissionPolicy',
-    ];
-
     /**
      * Register any authentication / authorization services.
      *
@@ -24,6 +14,16 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerPolicies();
+        $config = config('oxy_users');
+
+        $policies = [
+            $config['user_model'] => $config['user_policy'],
+            $config['role_model'] => $config['role_policy'],
+            $config['permission_model'] => $config['permission_policy'],
+        ];
+
+        foreach ($policies as $key => $value) {
+            Gate::policy($key, $value);
+        }
     }
 }
