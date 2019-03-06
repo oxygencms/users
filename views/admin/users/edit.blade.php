@@ -19,4 +19,10 @@
         <button class="btn btn-primary" type="submit">Update</button>
     </form>
 
+    <media-uploads mediable_type="{{ get_class($user) }}"
+                   mediable_id="{{ $user->id }}"
+                   :media="{{ $user->media }}"
+                   class="mt-3"
+    ></media-uploads>
+
 @endsection

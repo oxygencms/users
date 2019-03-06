@@ -41,6 +41,8 @@ class AdminUserController extends Controller
 
         $roles = Role::all();
 
+        $user->mapMediaUrls();
+
         return view('oxygencms::admin.users.edit', compact('user', 'roles'));
     }
 

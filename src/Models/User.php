@@ -3,6 +3,7 @@
 namespace Oxygencms\Users\Models;
 
 use Oxygencms\Core\Traits\HasMediaDefinitions;
+use Oxygencms\Core\Traits\MediaMethods;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Oxygencms\Core\Traits\CommonQueries;
@@ -20,6 +21,7 @@ class User extends Authenticatable implements HasMedia
         CommonQueries,
         CommonAccessors,
         LogsActivity,
+        MediaMethods,
         CausesActivity,
         HasMediaDefinitions,
         HasMediaTrait {
