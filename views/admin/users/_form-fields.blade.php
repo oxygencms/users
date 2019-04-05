@@ -21,9 +21,38 @@
                name="email"
                placeholder="Enter user email..."
                value="{{ old('email', optional($user)->email) }}"
+               required
         >
         {!! $errors->first('email', '<small class="form-text text-danger">:message</small>') !!}
     </div>
+
+    @unless($user)
+    <!-- password -->
+    <div class="form-group col-6">
+        <label for="email">Password <strong>*</strong></label>
+        <input type="password"
+               class="form-control {{ $errors->has('password') ? 'is-invalid' : null }}"
+               id="password"
+               name="password"
+               placeholder="Enter user password..."
+
+        >
+        {!! $errors->first('password', '<small class="form-text text-danger">:message</small>') !!}
+    </div>
+
+    <!-- password_confirmation -->
+    <div class="form-group col-6">
+        <label for="email">Password confirmation <strong>*</strong></label>
+        <input type="password"
+               class="form-control {{ $errors->has('password_confirmation') ? 'is-invalid' : null }}"
+               id="password_confirmation"
+               name="password_confirmation"
+               placeholder="Confirm the user's password..."
+
+        >
+        {!! $errors->first('password_confirmation', '<small class="form-text text-danger">:message</small>') !!}
+    </div>
+    @endunless
 
     <div class="form-group col-6">
         <!-- phone -->
@@ -74,8 +103,12 @@
         >
             @foreach($roles as $role)
                 <option value="{{ $role->name }}"
-                        @php $old_and_current = old('roles', $user->roles->pluck('name')->all()) @endphp
-                        {{ in_array($role->name, $old_and_current) ? 'selected' : null }}
+                        @if($user)
+                            @php
+                                $old_and_current = old('roles', optional($user)->roles->pluck('name')->all());
+                            @endphp
+                            {{ in_array($role->name, $old_and_current) ? 'selected' : null }}
+                        @endif
                 >{{ $role->name }}</option>
             @endforeach
         </select>

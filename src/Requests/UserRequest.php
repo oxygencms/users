@@ -34,6 +34,10 @@ class UserRequest extends FormRequest implements UserRequestInterface
             'phone' => "nullable|string|regex:/^[0-9- ]+$/u",
         ];
 
+        if ($this->method('POST')) {
+            $rules['password'] = 'required|string|min:6|confirmed';
+        }
+
         return $rules;
     }
 }

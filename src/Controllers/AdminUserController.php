@@ -47,6 +47,41 @@ class AdminUserController extends Controller
     }
 
     /**
+     * Get the view to create an user.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function create()
+    {
+        $this->authorize('create', User::class);
+
+        $roles = Role::all();
+
+        $user = null;
+
+        return view('oxygencms::admin.users.create', compact('user', 'roles'));
+    }
+
+    /**
+     * Store a new user.
+     *
+     * @param UserRequest $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function store(UserRequest $request)
+    {
+        $this->authorize('create', User::class);
+
+        $user = User::create($request->validated());
+
+        $user->syncRoles($request->roles);
+
+        return redirect()->route('admin.user.index');
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param UserRequest $request
@@ -60,8 +95,6 @@ class AdminUserController extends Controller
         $this->authorize('update', User::class);
 
         $data = $request->validated();
-
-        unset($data['roles']);
 
         $user->update($data);
 

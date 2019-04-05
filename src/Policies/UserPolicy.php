@@ -25,6 +25,20 @@ class UserPolicy extends BasePolicy
     }
 
     /**
+     * @param User $user
+     *
+     * @return mixed
+     */
+    public function create(User $user)
+    {
+        if ($user->can('create_user') || $user->can('manage_users')) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * Determine whether the user can update the user.
      *
      * @param User $user

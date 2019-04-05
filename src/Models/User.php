@@ -3,6 +3,7 @@
 namespace Oxygencms\Users\Models;
 
 use Oxygencms\Core\Traits\HasMediaDefinitions;
+use Oxygencms\Core\Traits\HasTemporaryMedia;
 use Oxygencms\Core\Traits\MediaMethods;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -24,6 +25,7 @@ class User extends Authenticatable implements HasMedia
         MediaMethods,
         CausesActivity,
         HasMediaDefinitions,
+        HasTemporaryMedia,
         HasMediaTrait {
             HasMediaDefinitions::registerMediaCollections insteadof HasMediaTrait;
             HasMediaDefinitions::registerMediaConversions insteadof HasMediaTrait;
@@ -40,6 +42,13 @@ class User extends Authenticatable implements HasMedia
     protected $fillable = [
         'name', 'email', 'phone', 'password', 'active',
     ];
+
+    /**
+     * This attributes should be guarded.
+     *
+     * @var array
+     */
+    protected $guarded = ['roles'];
 
     /**
      * Logged attributes.
