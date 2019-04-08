@@ -27,14 +27,14 @@ class UserRequest extends FormRequest implements UserRequestInterface
         $key = $this->isMethod('POST') ? '' : $this->user->id;
 
         $rules = [
-            'active' => 'required|boolean',
-            'roles' => 'array|distinct',
             'name' => 'required|string',
             'email' => "required|email|unique:users,email,$key",
             'phone' => "nullable|string|regex:/^[0-9- ]+$/u",
+            'active' => 'required|boolean',
+            'roles' => 'array|distinct',
         ];
 
-        if ($this->method('POST')) {
+        if ($this->isMethod('POST')) {
             $rules['password'] = 'required|string|min:6|confirmed';
         }
 

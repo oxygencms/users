@@ -80,12 +80,9 @@
                                name="active"
                                value="1"
                                id="active"
-                                {{ old('active', optional($user)->active) == 1 ? 'checked' : null }}
+                               {{ old('active', optional($user)->active) == 1 ? 'checked' : null }}
                         >
-                        <label class="custom-control-label"
-                               style="width: 100%;"
-                               for="active"
-                        >
+                        <label class="custom-control-label" style="width: 100%;" for="active">
                             The user is active
                         </label>
                     </div>

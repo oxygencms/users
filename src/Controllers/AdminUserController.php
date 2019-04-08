@@ -28,25 +28,6 @@ class AdminUserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param User $user
-     *
-     * @return \Illuminate\Http\Response
-     * @throws \Illuminate\Auth\Access\AuthorizationException
-     */
-    public function edit(User $user)
-    {
-        $this->authorize('update', User::class);
-
-        $roles = Role::all();
-
-        $user->mapMediaUrls();
-
-        return view('oxygencms::admin.users.edit', compact('user', 'roles'));
-    }
-
-    /**
      * Get the view to create an user.
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -74,11 +55,34 @@ class AdminUserController extends Controller
     {
         $this->authorize('create', User::class);
 
-        $user = User::create($request->validated());
+        $user_data = $request->validated();
+
+        $user_data['password'] = bcrypt($request->password);
+
+        $user = User::create($user_data);
 
         $user->syncRoles($request->roles);
 
         return redirect()->route('admin.user.index');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param User $user
+     *
+     * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function edit(User $user)
+    {
+        $this->authorize('update', User::class);
+
+        $roles = Role::all();
+
+        $user->mapMediaUrls();
+
+        return view('oxygencms::admin.users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -94,9 +98,7 @@ class AdminUserController extends Controller
     {
         $this->authorize('update', User::class);
 
-        $data = $request->validated();
-
-        $user->update($data);
+        $user->update($request->validated());
 
         $user->syncRoles($request->roles);
 

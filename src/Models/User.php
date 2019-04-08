@@ -40,15 +40,8 @@ class User extends Authenticatable implements HasMedia
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'phone', 'password', 'active',
+        'name', 'email', 'phone', 'password', 'active', 'email_verified_at',
     ];
-
-    /**
-     * This attributes should be guarded.
-     *
-     * @var array
-     */
-    protected $guarded = ['roles'];
 
     /**
      * Logged attributes.
@@ -58,6 +51,13 @@ class User extends Authenticatable implements HasMedia
     protected static $logAttributes = [
         'name', 'email', 'phone', 'active',
     ];
+
+    /**
+     * This attributes should be guarded.
+     *
+     * @var array
+     */
+    protected $guarded = ['roles', 'password_confirmation'];
 
     /**
      * The attributes that should be hidden for arrays.
