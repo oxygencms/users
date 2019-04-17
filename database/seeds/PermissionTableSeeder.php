@@ -14,6 +14,7 @@ class PermissionTableSeeder extends Seeder
     {
         $permissions = [
             'manage_back_office', // can do everything!
+            'access_back_office', // can only access the back office (/admin)
         ];
 
         $resource_permissions = array_flatten([

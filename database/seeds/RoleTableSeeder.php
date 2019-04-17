@@ -22,6 +22,7 @@ class RoleTableSeeder extends Seeder
             [
                 'role' => 'observer',
                 'permissions' => [
+                    'access_back_office'
                     'view_links',
                     'view_menus',
                     'view_pages',
