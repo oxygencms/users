@@ -16,6 +16,7 @@ class RoleTableSeeder extends Seeder
             [
                 'role' => 'administrator',
                 'permissions' => [
+                    'access_back_office'
                     'manage_back_office',
                 ],
             ],
