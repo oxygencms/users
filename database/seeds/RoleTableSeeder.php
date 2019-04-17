@@ -16,14 +16,14 @@ class RoleTableSeeder extends Seeder
             [
                 'role' => 'administrator',
                 'permissions' => [
-                    'access_back_office'
+                    'access_back_office',
                     'manage_back_office',
                 ],
             ],
             [
                 'role' => 'observer',
                 'permissions' => [
-                    'access_back_office'
+                    'access_back_office',
                     'view_links',
                     'view_menus',
                     'view_pages',
