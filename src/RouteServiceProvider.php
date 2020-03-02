@@ -48,7 +48,7 @@ class RouteServiceProvider extends ServiceProvider
             });
 
         // Social Login
-        // TODO: move controllers here or extract package
+        // todo: move controllers here or extract a package
         Route::middleware('web')->namespace('App\Http\Controllers\Auth')->group(function () {
             Route::get('social/{provider}', 'AuthController@redirectToProvider');
             Route::get('social/{provider}/callback', 'AuthController@handleProviderCallback');

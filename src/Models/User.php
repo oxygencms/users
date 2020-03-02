@@ -2,6 +2,7 @@
 
 namespace Oxygencms\Users\Models;
 
+use Oxygencms\Uploads\Traits\HasUploads;
 use Oxygencms\Core\Traits\HasMediaDefinitions;
 use Oxygencms\Core\Traits\HasTemporaryMedia;
 use Oxygencms\Core\Traits\MediaMethods;
@@ -13,6 +14,7 @@ use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\Traits\CausesActivity;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements HasMedia
@@ -22,8 +24,9 @@ class User extends Authenticatable implements HasMedia
         CommonQueries,
         CommonAccessors,
         LogsActivity,
-        MediaMethods,
         CausesActivity,
+        HasUploads, # added for backward compatibility
+        MediaMethods,
         HasMediaDefinitions,
         HasTemporaryMedia,
         HasMediaTrait {
@@ -69,9 +72,9 @@ class User extends Authenticatable implements HasMedia
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return HasOne
      */
-    public function socialLogin()
+    public function socialLogin(): HasOne
     {
         return $this->hasOne(SocialLogin::class);
     }

@@ -41,7 +41,9 @@ class UserServiceProvider extends ServiceProvider
             __DIR__.'/../database/factories' => database_path('factories')
         ], 'factories');
 
-        $this->publishes([__DIR__.'/../config' => config_path()], 'config');
+        $this->publishes([
+            __DIR__.'/../config/oxy_users.php' => config_path('oxy_users.php')
+        ], 'config');
 
         $router->aliasMiddleware('personal', UserResource::class);
         $router->aliasMiddleware('permission', PermissionMiddleware::class);

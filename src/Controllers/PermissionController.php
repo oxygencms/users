@@ -12,7 +12,7 @@ class PermissionController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index()
@@ -29,7 +29,7 @@ class PermissionController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function create()
@@ -65,7 +65,7 @@ class PermissionController extends Controller
      *
      * @param Permission $permission
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function edit(Permission $permission)
@@ -81,7 +81,7 @@ class PermissionController extends Controller
      * @param PermissionRequest $request
      * @param Permission        $permission
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(PermissionRequest $request, Permission $permission)
@@ -99,7 +99,7 @@ class PermissionController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Permission $permission
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */

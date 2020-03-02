@@ -23,11 +23,9 @@ class RoleRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [
+        return [
             'name' => 'required',
             'permissions' => 'array|distinct',
         ];
-
-        return $rules;
     }
 }

@@ -3,6 +3,7 @@
 namespace Oxygencms\Users\Models;
 
 use Oxygencms\Core\Models\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class SocialLogin extends Model
 {
@@ -16,9 +17,9 @@ class SocialLogin extends Model
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(\App\Models\User::class);
     }

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Oxygencms\Users\Models\Permission;
 
@@ -45,8 +46,8 @@ class PermissionTableSeeder extends Seeder
     private function resourcePermissions(string $model)
     {
         return [
-            'manage_' . str_plural($model), // can do all them
-            "view_" . str_plural($model), // index (back office)
+            'manage_' . Str::plural($model), // can do all them
+            "view_" . Str::plural($model), // index (back office)
             "create_$model", // create
             "update_$model", // update
             "delete_$model", // delete

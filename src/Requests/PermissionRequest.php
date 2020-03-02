@@ -23,10 +23,8 @@ class PermissionRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [
+        return [
             'name' => 'required|string',
         ];
-
-        return $rules;
     }
 }

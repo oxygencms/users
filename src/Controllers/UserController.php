@@ -36,10 +36,11 @@ class UserController extends Controller
     /**
      * Update the user's profile.
      *
-     * @param User    $user
+     * @param User $user
      * @param Request $request
      *
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function profileUpdate(User $user, Request $request)
     {
