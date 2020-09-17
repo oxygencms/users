@@ -6,16 +6,16 @@ use Oxygencms\Uploads\Traits\HasUploads;
 use Oxygencms\Core\Traits\HasMediaDefinitions;
 use Oxygencms\Core\Traits\HasTemporaryMedia;
 use Oxygencms\Core\Traits\MediaMethods;
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Oxygencms\Core\Traits\CommonQueries;
 use Oxygencms\Core\Traits\CommonAccessors;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\Traits\CausesActivity;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 class User extends Authenticatable implements HasMedia
 {
@@ -27,12 +27,12 @@ class User extends Authenticatable implements HasMedia
         CausesActivity,
         HasUploads, # added for backward compatibility
         MediaMethods,
+        InteractsWithMedia,
         HasMediaDefinitions,
-        HasTemporaryMedia,
-        HasMediaTrait {
-            HasMediaDefinitions::registerMediaCollections insteadof HasMediaTrait;
-            HasMediaDefinitions::registerMediaConversions insteadof HasMediaTrait;
-            HasMediaDefinitions::mapMediaUrls insteadof HasMediaTrait;
+        HasTemporaryMedia {
+            HasMediaDefinitions::registerMediaCollections insteadof InteractsWithMedia;
+            HasMediaDefinitions::registerMediaConversions insteadof InteractsWithMedia;
+            HasMediaDefinitions::mapMediaUrls insteadof InteractsWithMedia;
         }
 
     protected $guard_name = 'web';
