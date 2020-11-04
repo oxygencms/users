@@ -15,7 +15,7 @@
     "require": {
         "php": "^7.4",
         "spatie/laravel-permission": "^3.17",
-        "oxygencms/core": "^2.0",
+        "oxygencms/core": "^2.0|dev-master",
         "laravel/socialite": "^5.0"
     },
     "minimum-stability": "dev",
